@@ -147,9 +147,6 @@ import LoginButton from './component/LoginButton';
 import LogoutButton from './component/LogoutButton';
 import Profile from './pages/Profile';
 
-// const AUTH0_DOMAIN = 'dev-8j8pwkvug2lumphw.us.auth0.com';
-// const AUTH0_CLIENT_ID = '8O3pYhA3IFGxdrT0CKTPD0ZlsVFrFvoi';
-
 function Header({ handleSearch, handleCategorySelect, selectedCategory }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
