@@ -155,7 +155,6 @@ function Header({ handleSearch, handleCategorySelect, selectedCategory }) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   return (
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4">
