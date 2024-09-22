@@ -1,16 +1,95 @@
+// import { Input } from '../components/ui/input';
+// import { Button } from '../components/ui/button';
+// import { useState } from 'react';
+
+// export default function SignUp() {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [confirmPassword, setConfirmPassword] = useState('');
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     if(password !== confirmPassword){
+//         alert("passwords doesn't match")
+//         return;
+//     }
+//     else{
+//         localStorage.setItem('user',email);
+//     localStorage.setItem('password', password)
+//     console.log({ email, password, confirmPassword });
+//     }
+//   };
+
+//   return (
+//     <div className="max-w-md mx-auto p-6 shadow-lg">
+//       <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
+//       <form onSubmit={handleSubmit}>
+//         <div className="mb-4">
+//           <label htmlFor="email" className="block text-sm mb-2">Email</label>
+//           <Input
+//             type="email"
+//             id="email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             placeholder="Enter your email"
+//           />
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="password" className="block text-sm mb-2">Password</label>
+//           <Input
+//             type="password"
+//             id="password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             placeholder="Enter your password"
+//           />
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="confirm-password" className="block text-sm mb-2">Confirm Password</label>
+//           <Input
+//             type="password"
+//             id="confirm-password"
+//             value={confirmPassword}
+//             onChange={(e) => setConfirmPassword(e.target.value)}
+//             placeholder="Confirm your password"
+//           />
+//         </div>
+//         <Button type="submit">Sign Up</Button>
+//       </form>
+//     </div>
+//   );
+// }
+
+
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle sign-up logic here
-    console.log({ email, password, confirmPassword });
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+    
+    const existingUser = localStorage.getItem('user');
+    if (existingUser === email) {
+      alert("User with this email already exists. Please login.");
+      navigate('/login');
+      return;
+    }
+
+    localStorage.setItem('user', email);
+    localStorage.setItem('password', password);
+    alert("Sign up successful! Please login.");
+    navigate('/login');
   };
 
   return (
@@ -25,6 +104,7 @@ export default function SignUp() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
+            required
           />
         </div>
         <div className="mb-4">
@@ -35,6 +115,7 @@ export default function SignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
+            required
           />
         </div>
         <div className="mb-4">
@@ -45,6 +126,7 @@ export default function SignUp() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm your password"
+            required
           />
         </div>
         <Button type="submit">Sign Up</Button>
@@ -52,7 +134,6 @@ export default function SignUp() {
     </div>
   );
 }
-
 
 // import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
