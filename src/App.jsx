@@ -114,7 +114,7 @@ function App() {
             </div>
           </main>
         )}
-        <Footer />
+        {isAuthenticated && <Footer />}
       </div>
     </Router>
   );
