@@ -83,31 +83,34 @@ function AddPost() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Add New Post</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="title" className="block mb-1">Title</label>
-          <Input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="content" className="block mb-1">Content</label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-            rows="10"
-          />
-        </div>
-        <Button type="submit">Add Post</Button>
-      </form>
+    // <div className="max-w-2xl mx-auto">
+    //   <h1 className="text-3xl font-bold mb-4">Add New Post</h1>
+    //   <form onSubmit={handleSubmit} className="space-y-4">
+    //     <div>
+    //       <label htmlFor="title" className="block mb-1">Title</label>
+    //       <Input
+    //         type="text"
+    //         id="title"
+    //         value={title}
+    //         onChange={(e) => setTitle(e.target.value)}
+    //         required
+    //       />
+    //     </div>
+    //     <div>
+    //       <label htmlFor="content" className="block mb-1">Content</label>
+    //       <textarea
+    //         id="content"
+    //         value={content}
+    //         onChange={(e) => setContent(e.target.value)}
+    //         required
+    //         rows="10"
+    //       />
+    //     </div>
+    //     <Button type="submit">Add Post</Button>
+    //   </form>
+    // </div>
+    <div>
+      
     </div>
   );
 }
