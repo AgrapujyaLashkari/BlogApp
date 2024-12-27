@@ -17,7 +17,6 @@ const Profile = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
-      <img src={user.picture} alt={user.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
       <h2 className="text-2xl font-bold text-center mb-4">{user.name}</h2>
       <div className="space-y-2">
         <p><strong>Email:</strong> {user.email}</p>
